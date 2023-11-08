@@ -1,10 +1,11 @@
 import json
+import os
 
 import quart
 import quart_cors
 from quart import request
 
-httpProtocol = "http://"
+host_url = os.getenv('HOST_URL', 'http://localhost:5002')
 
 app = quart_cors.cors(quart.Quart(__name__), allow_origin="*")
 
@@ -42,7 +43,7 @@ async def plugin_manifest():
     host = request.headers['Host']
     with open(".well-known/ai-plugin.json") as f:
         text = f.read()
-        text = text.replace("<PLUGIN_HOSTNAME>", f"{ httpProtocol + host}")
+        text = text.replace("<PLUGIN_HOSTNAME>", f"{host_url}")
         print(text)
         return quart.Response(text, mimetype="text/json")
 
@@ -51,7 +52,7 @@ async def openapi_spec():
     host = request.headers['Host']
     with open("openapi.yaml") as f:
         text = f.read()
-        text = text.replace("<PLUGIN_HOSTNAME>", f"{ httpProtocol + host}")
+        text = text.replace("<PLUGIN_HOSTNAME>", f"{host_url}")
         return quart.Response(text, mimetype="text/yaml")
 
 @app.get("/oauth")
