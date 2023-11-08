@@ -19,4 +19,4 @@ ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_RUN_PORT=5002
 
 # Run main.py when the container launches
-CMD ["quart", "run"]
+CMD ["python", "main.py"]
