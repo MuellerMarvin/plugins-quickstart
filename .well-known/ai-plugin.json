@@ -10,9 +10,7 @@
       "scope": "",
       "authorization_url": "<PLUGIN_HOSTNAME>/auth/oauth_exchange",
       "authorization_content_type": "application/json",
-      "verification_tokens": {
-          "openai": "Replace_this_string_with_the_verification_token_generated_in_the_ChatGPT_UI"
-      }
+      "verification_tokens": {"openai":"8be3564fb0f74b6a83b5f81dc6488824"}
   },
   "api": {
       "type": "openapi",
