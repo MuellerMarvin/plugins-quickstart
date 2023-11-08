@@ -4,6 +4,10 @@ import os
 import quart
 import quart_cors
 from quart import request
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 host_url = os.getenv('HOST_URL', 'http://localhost:5002')
 
