@@ -14,9 +14,9 @@ RUN pip install --no-cache-dir quart quart-cors
 EXPOSE 5002
 
 # Define environment variable
-ENV FLASK_APP=main.py
-ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_RUN_PORT=5002
+ENV QUART_APP=main.py
+ENV QUART_RUN_HOST=0.0.0.0
+ENV QUART_RUN_PORT=5002
 
 # Run main.py when the container launches
-CMD ["python", "main.py"]
+CMD ["quart", "run"]
